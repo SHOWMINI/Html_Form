@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Registration Form</title>
+</head>
+<style type="text/css">
+body {
+  background-image: url('image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+form {padding:200px;}
+form {text-align:center;}
+form {font-size:30px;}
+</style>
+<script>  
+function validateform(){  
+var name=document.myform.name.value; 
+var mail=document.myform.mail.value; 
+var dob=document.myform.dob.value;
+var country=document.myform.country.value;
+var message=document.myform.message.value; 
+  
+if(name!=''&&mail!='')
+{
+	if(name.length<5)
+	{
+	alert("Name must contains atleast 5 letters");
+	}
+	else
+	{
+		var letters = /^[A-Za-z]+$/;
+		if(name.match(letters))
+			{	var emailReg =  /^w+([.-]?w+)@w+([.-]?w+)(.w{2,3})+$/;
+				if (/(.+)@(.+){2,}\.(.+){2,}/.test(mail))
+				{
+				alert("Registered Successfully ...!!!!\n"+"Username:"+name+"\n"+"Mail:"+mail+"\n"+"DOB:"+dob+"\n"+"Country:"+country+"\n"+"Message:"+message);
+				return true;
+				}
+				else
+				{
+				alert("enter correct email!");
+				return false;
+				}
+				
+			}
+		else
+			{
+			alert("Dont use numbers or special characters!");
+			return false;
+			}
+	}
+}
+else
+{
+	alert("all fields are required!");
+	return false;
+}
+}  
+</script>  
+<body style="background-image: url('image.jpg')" align="center">   
+<form name="myform" method="post"  onsubmit="return validateform()"> 
+<fieldset>
+<legend>Registration Form</legend>
+<strong><label>Name:<input type="name" name="name"></label></strong><br/>
+<pre></pre>
+<strong><label>Email: <input type="mail" name="mail"></label></strong><br/>
+<pre></pre>
+<strong><label>DOB: <input type="date" name="dob"></label></strong><br/>
+<pre></pre>
+<strong><label>Country: <select name="country">
+<option>-----Select Your Country-----</option>
+<option>India</option>
+<option>USA</option>
+<option>AUS</option>
+<option>UK</option>
+</select></label></strong><br/>
+<pre></pre>
+<strong><label>Qualification: <strong> B.E</strong><input type="radio" select="qualification">
+<strong>M.E<input type="radio" select="qualification"></label></strong><br/>
+<pre></pre>
+<strong><label>Language: <strong>English</strong><input type="checkbox" select="language"></strong>
+<strong>Tamil<input type="checkbox" select="language"></label></strong><br/>
+<pre></pre>
+<strong><label>Message: <input type="text" name="message"></label></strong><br/> 
+<pre></pre>  
+<input type="submit"><br/>
+</fieldset>
+</form>  
+</body>
+</html>
